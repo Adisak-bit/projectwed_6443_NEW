@@ -28,7 +28,7 @@ services:
       - "8080:8080"
       - "8000:8000"
     volumes:
-      - ./target/ProjectWeb_6443-1.0-SNAPSHOT.war:/usr/local/tomcat/online-book.war
+      - ./target/ProjectWeb_6443-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/online-book.war
     environment:
       # bind JPDA to all interfaces so host debugger can attach
       JPDA_ADDRESS: "0.0.0.0:8000"
