@@ -37,7 +37,7 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class SearchController {
-    private static final String SECURE_PDF_PATH = "D:/Users/User/OneDrive - Maejo university/Desktop/MiniProject_6443/secure_member_books/"; 
+    private static final String SECURE_PDF_PATH = "/app/secure_pdfs/"; 
     //เมธอดสำหรับหน้าค้นหา / หน้าหลักสมาชิก
     @GetMapping({"/searchbook", "/"})
     public String searchBookPage(

@@ -4,11 +4,14 @@ services:
     image: mysql:8.0
     container_name: online-book-mysql
     restart: always
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_DATABASE: projectweb_6443
       MYSQL_USER: user1
       MYSQL_PASSWORD: 1234
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
     volumes:
       - mysql_data:/var/lib/mysql
       - ./docker/mysql/init:/docker-entrypoint-initdb.d
@@ -29,10 +32,12 @@ services:
       - "8000:8000"
     volumes:
       - ./target/ProjectWeb_6443-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/online-book.war
+      - "D:/Users/User/OneDrive - Maejo university/Desktop/MiniProject_6443/secure_member_books:/app/secure_pdfs"
     environment:
       # bind JPDA to all interfaces so host debugger can attach
       JPDA_ADDRESS: "0.0.0.0:8000"
       JPDA_TRANSPORT: "dt_socket"
+      JAVA_OPTS: "-Dfile.encoding=UTF-8"
       # suspend JVM until debugger attaches (useful for diagnosing attach issues)
       #JPDA_SUSPEND: "y"
       CATALINA_OPTS: "-Dspring.profiles.active=docker -Xmx512m -Xms256m"

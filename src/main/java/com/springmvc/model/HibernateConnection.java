@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateConnection {
     public static SessionFactory sessionFactory;
-    static String url = "jdbc:mysql://mysql:3306/projectweb_6443?characterEncoding=UTF-8"; 
+    static String url = "jdbc:mysql://mysql:3306/projectweb_6443?useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true"; 
     static String uname = "root";
     static String pwd = "1234";
 
